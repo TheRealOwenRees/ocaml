@@ -1,37 +1,32 @@
-FROM ocaml/opam:debian-11-ocaml-5.1-afl
+# Build stage
+FROM ocaml/opam:debian-13-ocaml-5.4-afl AS build
+
+USER root
+RUN apt-get update && apt-get install -y m4 bmake cpio net-tools fswatch pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+
+USER opam
+WORKDIR /home/opam
+
+RUN opam update && opam upgrade -y && \
+    opam install -y \
+    core core_unix yaml ezjsonm mustache dune fpath ocamlfind \
+    ounit ounit2 qcheck react ppx_deriving ppx_let ppx_sexp_conv \
+    yojson ocp-indent calendar getopt stdio && \
+    opam clean -a && \
+    rm -rf ~/.opam/download-cache ~/.opam/log ~/.opam/archives
+
+
+# Runtime stage
+FROM debian:13-slim
 
 USER root
 
-RUN apt-get update \
-    && apt-get install -y m4 bmake cpio net-tools fswatch pkg-config \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libgmp10 jq rsync && \
+    rm -rf /var/lib/apt/lists/*
 
-RUN git config --global --add safe.directory "*"
+RUN mkdir -p /tmp/exercism && chmod -R 777 /tmp/exercism
 
-RUN cd /home/opam/opam-repository \
-    && git pull origin master
+COPY --from=build /home/opam/.opam /home/opam/.opam
 
-RUN opam update \
-    && opam install core \
-    core_unix \
-    yaml \
-    ezjsonm \
-    mustache \
-    dune \
-    fpath \
-    ocamlfind \
-    ounit \
-    ounit2 \
-    qcheck \
-    react \
-    ppx_deriving \
-    ppx_let \
-    ppx_sexp_conv \
-    yojson \
-    ocp-indent \
-    calendar \
-    getopt \
-    stdio
-
-ENV PATH="/home/opam/.opam/5.1/bin:${PATH}" \
-    MAKESYSPATH=/usr/share/bmake/mk-bmake
+ENV PATH="/home/opam/.opam/5.4/bin:${PATH}"
