@@ -1,4 +1,4 @@
-(* space-age - 1.2.0 *)
+(* space-age - 1.0 *)
 open Base
 open OUnit2
 open Space_age
@@ -25,6 +25,8 @@ let tests = [
   ae ~delta:0.05 0.46 (age_on Uranus 1210123456);
   "age on Neptune" >::
   ae ~delta:0.05 0.35 (age_on Neptune 1821023456);
+  "invalid planet causes error" >::
+  ae ~delta:0.05 [("error", "not a planet")] (age_on Sun 680804807);
 ]
 
 let () =
