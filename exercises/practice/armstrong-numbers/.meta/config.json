@@ -1,15 +1,9 @@
 {
-  "authors": [],
+  "authors": ["therealowenrees"],
   "files": {
-    "solution": [
-      "armstrong_numbers.ml"
-    ],
-    "test": [
-      "test.ml"
-    ],
-    "example": [
-      ".meta/example.ml"
-    ]
+    "solution": ["armstrong_numbers.ml"],
+    "test": ["test.ml"],
+    "example": [".meta/example.ml"]
   },
   "blurb": "Determine if a number is an Armstrong number.",
   "source": "Wikipedia",
