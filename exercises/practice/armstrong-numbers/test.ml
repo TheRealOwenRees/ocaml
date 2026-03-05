@@ -7,23 +7,23 @@ let ae exp got _test_ctxt =
 
 let tests = [
   "Zero is an Armstrong number" >::
-  ae true (armstrong_numbers (0));
+  ae true (validate (0));
   "Single-digit numbers are Armstrong numbers" >::
-  ae true (armstrong_numbers (5));
+  ae true (validate (5));
   "There are no two-digit Armstrong numbers" >::
-  ae false (armstrong_numbers (10));
+  ae false (validate (10));
   "Three-digit number that is an Armstrong number" >::
-  ae true (armstrong_numbers (153));
+  ae true (validate (153));
   "Three-digit number that is not an Armstrong number" >::
-  ae false (armstrong_numbers (100));
+  ae false (validate (100));
   "Four-digit number that is an Armstrong number" >::
-  ae true (armstrong_numbers (9474));
+  ae true (validate (9474));
   "Four-digit number that is not an Armstrong number" >::
-  ae false (armstrong_numbers (9475));
+  ae false (validate (9475));
   "Seven-digit number that is an Armstrong number" >::
-  ae true (armstrong_numbers (9926315));
+  ae true (validate (9926315));
   "Seven-digit number that is not an Armstrong number" >::
-  ae false (armstrong_numbers (9926314));
+  ae false (validate (9926314));
 ]
 
 let () =
