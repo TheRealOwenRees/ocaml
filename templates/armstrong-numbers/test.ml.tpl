@@ -1,3 +1,4 @@
+(* {{name}} - {{version}} *)
 open OUnit2
 open Armstrong_numbers
 
@@ -7,7 +8,7 @@ let ae exp got _test_ctxt =
 let tests = [
   {{#cases}}
     "{{description}}" >::
-      ae {{expected}} (armstrong {{#input}}{{number}}{{/input}});
+      ae {{#input}}{{expected}} (armstrong_numbers ({{number}})){{/input}};
   {{/cases}}
 ]
 

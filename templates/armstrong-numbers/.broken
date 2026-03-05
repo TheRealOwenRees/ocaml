@@ -9,13 +9,13 @@ let ae exp got _test_ctxt =
 let tests = [
   {{#cases}}
     "{{description}}" >::
-      ae {{expected}} (armstrong {{#input}}{{number}}{{/input}});
+      ae {{#input}}{{expected}} (armstrong_numbers ({{number}})){{/input}};
   {{/cases}}
 ]
 
 let () =
   run_test_tt_main ("armstrong tests" >::: tests)
-
+  
 Uncaught exception:                 
   
   Yojson__Common.Json_error("Line 94, bytes 17-51:\nInt overflow '186709961001538790100634132976990'")
@@ -41,3 +41,4 @@ Called from Generator__Controller.run in file "lib_generator/controller.ml", lin
 Called from Dune__exe__Test_gen.command.(fun) in file "bin_test_gen/test_gen.ml", lines 42-47, characters 11-26
 Called from Command.For_unix.run.(fun) in file "command/src/command.ml", lines 3388-3399, characters 8-31
 Called from Base__Exn.handle_uncaught_aux in file "src/exn.ml", line 126, characters 6-10
+make: *** [Makefile:54: armstrong-numbers.gen] Error 1
