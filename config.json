@@ -654,6 +654,14 @@
         "topics": [
           "functional_programming"
         ]
+      },
+      {
+        "slug": "scrabble-score",
+        "name": "Scrabble Score",
+        "uuid": "0298b5aa-6a3b-43d6-893d-91b72f4178ad",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
       }
     ]
   },
