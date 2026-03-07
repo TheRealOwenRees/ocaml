@@ -55,6 +55,14 @@
         "topics": ["booleans", "integers"]
       },
       {
+        "slug": "armstrong-numbers",
+        "name": "Armstrong Numbers",
+        "uuid": "ddbcf49c-adf8-415a-9682-4c47989f5970",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "darts",
         "name": "Darts",
         "uuid": "c6b23754-4410-4450-81fc-a7d53278cff5",
@@ -549,14 +557,6 @@
         "prerequisites": [],
         "difficulty": 10,
         "topics": ["functional_programming"]
-      },
-      {
-        "slug": "armstrong-numbers",
-        "name": "Armstrong Numbers",
-        "uuid": "ddbcf49c-adf8-415a-9682-4c47989f5970",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2
       }
     ]
   },
