@@ -171,10 +171,20 @@ let edit_minesweeper (ps: (string * json) list): (string * string) list =
     | (k, v) -> (k, json_to_string v) in
   List.map ps ~f:edit
 
-let edit_space_age (ps: (string * json) list): (string * string) list =
-  let edit = function
-    | ("planet", v) -> ("planet", json_to_string v |> strip_quotes)
-    | (k, v) -> (k, json_to_string v) in
+  let edit_space_age (ps: (string * json) list): (string * string) list =
+    let edit = function
+      | ("planet", v) -> 
+          ("planet", json_to_string v |> strip_quotes)
+      | ("expected", v) ->
+          let wrapped = match v with
+            | `Float f -> Printf.sprintf "Ok %.2f" f
+            | `Int i   -> Printf.sprintf "Ok %.2f" (Float.of_int i)
+            | `Assoc [("error", `String msg)] -> Printf.sprintf "Error %S" msg
+            | _ -> json_to_string v
+          in
+          ("expected", wrapped)
+      | (k, v) -> (k, json_to_string v) 
+  in
   List.map ps ~f:edit
 
 let null_to_option = function `Null -> "None" | x -> Printf.sprintf "(Some %s)" (json_to_string x)
