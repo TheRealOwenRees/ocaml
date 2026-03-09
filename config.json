@@ -304,6 +304,14 @@
         "difficulty": 3
       },
       {
+        "slug": "scrabble-score",
+        "name": "Scrabble Score",
+        "uuid": "0298b5aa-6a3b-43d6-893d-91b72f4178ad",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "triangle",
         "name": "Triangle",
         "uuid": "a43c28f4-8f5c-40f7-90cb-79689c810f95",
