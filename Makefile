@@ -56,7 +56,7 @@ $(ASSIGNMENTS_GEN): test_generator
 generate_exercises: $(ASSIGNMENTS_GEN)
 
 install_deps:
-	opam install dune ounit qcheck fpath react ppx_deriving ppx_sexp_conv yojson ocp-indent calendar core mustache ezjsonm core_unix
+	opam install dune ounit qcheck fpath react ppx_deriving ppx_sexp_conv yojson ocp-indent calendar core mustache ezjsonm core_unix ocamlformat ocaml-lsp-server
 
 clean:
 	dune clean --root=./test-generator/
