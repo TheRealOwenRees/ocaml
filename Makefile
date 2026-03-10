@@ -55,6 +55,8 @@ $(ASSIGNMENTS_GEN): test_generator
 	
 generate_exercises: $(ASSIGNMENTS_GEN)
 
+fmt: opam exec -- dune fmt
+
 install_deps:
 	opam install dune ounit qcheck fpath react ppx_deriving ppx_sexp_conv yojson ocp-indent calendar core mustache ezjsonm core_unix ocamlformat ocaml-lsp-server
 
