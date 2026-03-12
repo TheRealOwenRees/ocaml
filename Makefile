@@ -62,7 +62,7 @@ format:
 	cd test-generator && opam exec -- dune fmt
 
 install_deps:
-	opam install dune ounit qcheck fpath react ppx_deriving ppx_sexp_conv yojson ocp-indent calendar core mustache ezjsonm core_unix ocamlformat ocaml-lsp-server
+	opam install dune ounit qcheck fpath react ppx_deriving ppx_sexp_conv yojson ocp-indent calendar core mustache ezjsonm core_unix ocamlformat.0.28.1 ocaml-lsp-server
 
 clean:
 	dune clean --root=./test-generator/
