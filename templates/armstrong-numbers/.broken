@@ -1,0 +1,44 @@
+armstrong-numbers/test.ml.tpl
+======
+open OUnit2
+open Armstrong_numbers
+
+let ae exp got _test_ctxt = 
+  assert_equal ~printer:string_of_bool exp got
+
+let tests = [
+  {{#cases}}
+    "{{description}}" >::
+      ae {{#input}}{{expected}} (armstrong_numbers ({{number}})){{/input}};
+  {{/cases}}
+]
+
+let () =
+  run_test_tt_main ("armstrong tests" >::: tests)
+  
+Uncaught exception:                 
+  
+  Yojson__Common.Json_error("Line 94, bytes 17-51:\nInt overflow '186709961001538790100634132976990'")
+
+Raised at Yojson__Common.json_error in file "lib/common.ml", line 5, characters 19-39
+Called from Yojson__Basic.read_json in file "lib/read.ml" (inlined), line 980, characters 3-39
+Called from Yojson__Basic.__ocaml_lex_read_json_rec in file "lib/read.mll", line 219, characters 41-59
+Called from Yojson__Basic.read_json in file "lib/read.ml" (inlined), line 980, characters 3-39
+Called from Yojson__Basic.__ocaml_lex_read_json_rec in file "lib/read.mll", line 228, characters 43-61
+Called from Yojson__Basic.read_json in file "lib/read.ml" (inlined), line 980, characters 3-39
+Called from Yojson__Basic.__ocaml_lex_read_json_rec in file "lib/read.mll", line 244, characters 30-48
+Called from Yojson__Basic.read_json in file "lib/read.ml" (inlined), line 980, characters 3-39
+Called from Yojson__Basic.__ocaml_lex_read_json_rec in file "lib/read.mll", line 228, characters 43-61
+Called from Yojson__Basic.read_json in file "lib/read.ml" (inlined), line 980, characters 3-39
+Called from Yojson__Basic.from_lexbuf in file "lib/read.mll", line 875, characters 8-26
+Called from Yojson__Basic.from_string in file "lib/read.mll", line 888, characters 6-26
+Called from Generator__Canonical_data.of_string.mem in file "lib_generator/canonical_data.ml" (inlined), line 19, characters 35-50
+Called from Generator__Canonical_data.of_string in file "lib_generator/canonical_data.ml", line 20, characters 16-31
+Called from Base__Result.map in file "src/result.ml", line 187, characters 17-22
+Called from Generator__Exercise.of_candidate in file "lib_generator/exercise.ml", line 16, characters 35-50
+Called from Base__List.map in file "src/list.ml", line 433, characters 15-18
+Called from Generator__Controller.run in file "lib_generator/controller.ml", lines 15-20, characters 4-83
+Called from Dune__exe__Test_gen.command.(fun) in file "bin_test_gen/test_gen.ml", lines 42-47, characters 11-26
+Called from Command.For_unix.run.(fun) in file "command/src/command.ml", lines 3388-3399, characters 8-31
+Called from Base__Exn.handle_uncaught_aux in file "src/exn.ml", line 126, characters 6-10
+make: *** [Makefile:54: armstrong-numbers.gen] Error 1

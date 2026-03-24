@@ -43,7 +43,7 @@ To work on the exercises, you will need these pieces of software:
    opam install utop
    ```
 
-   Place the following in the file `.ocamlinit` in your home directory should contain something like:
+   Create a new file named `.ocamlinit` in your home directory and add the following lines to it:
 
    ```ocaml
    #use "topfind";;
@@ -54,6 +54,5 @@ To work on the exercises, you will need these pieces of software:
 5. Install tools in VS Code (optional)
 
    If you use VS Code:
-
    - Install the OCaml language server from [here](https://github.com/ocaml/ocaml-lsp).
    - Install the OCaml VS Code extension from [here](https://marketplace.visualstudio.com/items?itemName=ocamllabs.ocaml-platform), or search for `OCaml Platform` by Ocaml Labs.
